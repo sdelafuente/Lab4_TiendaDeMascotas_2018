@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ApiService } from './servicios/api.service';
 import { AuthService } from './servicios/auth.service';
@@ -14,11 +14,14 @@ import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { MenuComponent } from './menu/menu.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { AbmMascotaComponent } from './abm-mascota/abm-mascota.component';
+import { MascotasTurnosComponent } from './mascotas-turnos/mascotas-turnos.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent   },
   { path: 'registro', component: RegistroComponent   },
   { path: 'inicio', component: InicioComponent, canActivate: [VerificarJwtService] },
+  { path: 'mascota', component: AbmMascotaComponent, canActivate: [VerificarJwtService] },
   { path: '',   redirectTo: '/registro', pathMatch: 'full' },
   // { path: '**', component: ErrorComponent }
 ];
@@ -29,13 +32,16 @@ const appRoutes: Routes = [
     LoginComponent,
     RegistroComponent,
     MenuComponent,
-    InicioComponent
+    InicioComponent,
+    AbmMascotaComponent,
+    MascotasTurnosComponent
   ],
   imports: [
     BrowserModule,
     JwtModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [

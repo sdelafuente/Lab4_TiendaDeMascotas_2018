@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
+import * as jwt_decode from 'jwt-decode';
 
 @Injectable()
 export class VerificarJwtService implements CanActivate {
@@ -20,6 +21,14 @@ export class VerificarJwtService implements CanActivate {
 
         if ( this.auth.isLogued() ) {
 
+            const token = localStorage.getItem('token');
+            // console.log(tokenPayload);
+            // decode the token to get its payload
+             const tokenPayload = jwt_decode(token);
+             console.log(tokenPayload.data);
+             if (tokePayLoad.data.rol !== 'cliente') {
+                 return false;
+             }
           return true;
         } else {
           this.router.navigate(['/login']);

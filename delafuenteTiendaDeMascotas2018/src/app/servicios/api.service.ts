@@ -30,6 +30,14 @@ postLogin(user: Object, ruta: string) {
   .catch( this.handleError );
 }
 
+postMascota(mascota: Object, ruta: string) {
+    //console.log(mascota);
+  return this.http.post(this.url + ruta, mascota)
+  .toPromise()
+  .then( this.extractData )
+  .catch( this.handleError );
+}
+
 private extractData(res: Response) {
   const body = res.json();
 
