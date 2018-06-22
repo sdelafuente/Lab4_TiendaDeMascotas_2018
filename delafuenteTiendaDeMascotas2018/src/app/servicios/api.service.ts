@@ -31,7 +31,7 @@ postLogin(user: Object, ruta: string) {
 }
 
 postMascota(mascota: Object, ruta: string) {
-    //console.log(mascota);
+    // console.log(mascota);
   return this.http.post(this.url + ruta, mascota)
   .toPromise()
   .then( this.extractData )

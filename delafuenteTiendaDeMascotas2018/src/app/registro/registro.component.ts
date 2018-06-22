@@ -13,7 +13,7 @@ export class RegistroComponent implements OnInit {
 
     //   Objeto Usuario
     usuario: Usuario;
-    public miUsuario = new Usuario(0, '', 'admin', '');
+    public miUsuario = new Usuario(0, '', 'cliente', '');
 
     constructor(private router: Router, private service: ApiService) { }
 
@@ -32,7 +32,7 @@ export class RegistroComponent implements OnInit {
       this.service.postLogin( privUsuario, '/registro/' )
       .then( data => {
           console.log(data);
-          this.router.navigateByUrl('/inicio');
+          this.router.navigateByUrl('/login');
           return true;
       })
       .catch( e => {

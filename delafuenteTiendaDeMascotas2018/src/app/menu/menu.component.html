@@ -1,22 +1,24 @@
-<nav class="pull-left navbar navbar-expand">
-    <div class="" id="navbarSupportedContent">
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/inicio" routerLinkActive="">Inicio</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/mascota" routerLinkActive="">Mascota</a>
-        </li>
-        <li class="nav-item" >
-            <a class="nav-link" routerLink="/registro" routerLinkActive="">Registrar</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/login" routerLinkActive="">Login</a>
-        </li>
+<!--nav class="pull-left navbar navbar-expand"-->
 
-        <li class="nav-item">
-            <a  class="nav-link" [routerLink]="[]" (click)="salir()" routerLinkActive="">Logout</a>
-        </li>
-    </ul>
-    </div>
-</nav>
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <div class="" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/inicio" routerLinkActive="">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/mascota" routerLinkActive="">Mascota</a>
+            </li>
+            <li class="nav-item" >
+                <a class="nav-link" routerLink="/registro" routerLinkActive="">Registrar</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/login" routerLinkActive="">Login</a>
+            </li>
+
+            <li class="nav-item">
+                <a  class="nav-link" [routerLink]="[]" (click)="salir()" routerLinkActive="">Logout</a>
+            </li>
+        </ul>
+        </div>
+    </nav>

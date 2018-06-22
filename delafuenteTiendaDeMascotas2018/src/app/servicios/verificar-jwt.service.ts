@@ -26,7 +26,7 @@ export class VerificarJwtService implements CanActivate {
             // decode the token to get its payload
              const tokenPayload = jwt_decode(token);
              console.log(tokenPayload.data);
-             if (tokePayLoad.data.rol !== 'cliente') {
+             if (tokenPayload.data.rol !== 'cliente') {
                  return false;
              }
           return true;
