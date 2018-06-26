@@ -16,12 +16,14 @@ import { MenuComponent } from './menu/menu.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { AbmMascotaComponent } from './abm-mascota/abm-mascota.component';
 import { MascotasTurnosComponent } from './mascotas-turnos/mascotas-turnos.component';
+import { AbmTurnosComponent } from './abm-turnos/abm-turnos.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent   },
   { path: 'registro', component: RegistroComponent   },
   { path: 'inicio', component: InicioComponent, canActivate: [VerificarJwtService] },
   { path: 'mascota', component: AbmMascotaComponent, canActivate: [VerificarJwtService] },
+  { path: 'turnos', component: AbmTurnosComponent, canActivate: [VerificarJwtService] },
   { path: '',   redirectTo: '/registro', pathMatch: 'full' },
   // { path: '**', component: ErrorComponent }
 ];
@@ -34,7 +36,8 @@ const appRoutes: Routes = [
     MenuComponent,
     InicioComponent,
     AbmMascotaComponent,
-    MascotasTurnosComponent
+    MascotasTurnosComponent,
+    AbmTurnosComponent
   ],
   imports: [
     BrowserModule,

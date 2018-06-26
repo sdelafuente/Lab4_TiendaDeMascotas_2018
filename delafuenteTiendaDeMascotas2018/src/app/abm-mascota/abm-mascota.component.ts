@@ -24,11 +24,13 @@ export class AbmMascotaComponent implements OnInit {
 
     public objMascota: Mascota;
     public miMascota = new Mascota();
+    public mascotaFlag: Boolean;
 
     constructor(private service: ApiService) { }
 
   ngOnInit() {
       this.objMascota = new Mascota();
+      this.mascotaFlag = false;
   }
 
   pedirMascota() {
@@ -44,7 +46,8 @@ export class AbmMascotaComponent implements OnInit {
 
       this.service.postMascota( this.objMascota, '/mascota/' )
       .then( data => {
-           console.log(data);
+            this.mascotaFlag = true;
+           // console.log(data);
       })
       .catch( e => {
           console.log(e);

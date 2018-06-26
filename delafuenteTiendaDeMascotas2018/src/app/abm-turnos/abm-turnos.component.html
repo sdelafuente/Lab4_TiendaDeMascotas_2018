@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-12 bg-secondary rounded text-uppercase">
+        <h4 class="text-muted" >Lista de Mascotas</h4>
+            <!-- LA TABLA YA TIENE ESTILOS PRECARGADOS EN EL CSS -->
+            <table class="table rounded" *ngIf="mostrarLista">
+                <thead>
+                  <tr class="grey">
+                    <th>Ficha</th>
+                    <th>Edad</th>
+                    <th>Color</th>
+                    <th>Raza</th>
+                    <th>Tipo</th>
+                    <th>Turno</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let mascota of arrayMascotas" [ngStyle]="{'background-color': (mascota.tipo == 1) ? '#78909c' : '#cfd8dc' }">
+
+                    <td>{{mascota.nro_ficha}}</td>
+                    <td>{{mascota.edad}}</td>
+                    <td>{{mascota.color}}</td>
+                    <td>{{mascota.raza}}</td>
+                    <td>{{mascota.tipo}}</td>
+
+                    <!-- <td>
+                        <div class="">
+                            <button class="btn sm-secondary" name="btnBorrar+'mascota.email'"  (click)="borrarUsuario(mascota)">Eliminar</button>
+                        </div>
+                   </td> -->
+                    <td >
+                        <div class="">
+                            <button class="btn sm-secondary" id="btnModificar_+'mascota.id'" (click)="cargarObjeto(mascota)" >Modificar</button>
+                        </div>
+
+                        <!--input type="button" class="btn sm-primary"id="btnModificar_+'mascota.id'" (click)="cargarObjeto(mascota)" value="Modificar"-->
+                    </td>
+                </tr>
+              </tbody>
+            </table>
+    </div>
+</div>

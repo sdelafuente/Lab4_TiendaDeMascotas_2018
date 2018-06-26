@@ -57,10 +57,10 @@ export class LoginComponent implements OnInit {
   }
 
   enviar() {
-      this.tokenCaptcha = localStorage.getItem('token_captcha');
+      // this.tokenCaptcha = localStorage.getItem('token_captcha');
 
       if (this.tokenCaptcha !== 'null' || true) {
-          this.ws.postLogin( this.user, '/usuario/' )
+          this.ws.postLogin( this.user, '/mascota/login/' )
           .then( data => {
 
               if ( data.token ) {

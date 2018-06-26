@@ -25,10 +25,10 @@ export class VerificarJwtService implements CanActivate {
             // console.log(tokenPayload);
             // decode the token to get its payload
              const tokenPayload = jwt_decode(token);
-             console.log(tokenPayload.data);
-             if (tokenPayload.data.rol !== 'cliente') {
-                 return false;
-             }
+             // console.log(tokenPayload.data);
+              if (tokenPayload.data.rol !== 'cliente' || tokenPayload.data.rol !== 'admin') {
+                  // return false;
+              }
           return true;
         } else {
           this.router.navigate(['/login']);
