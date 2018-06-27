@@ -43,11 +43,10 @@ export class AbmMascotaComponent implements OnInit {
       this.objMascota.token = localStorage.getItem('token');
 
        // console.log(this.objMascota);
-
       this.service.postMascota( this.objMascota, '/mascota/' )
       .then( data => {
             this.mascotaFlag = true;
-           // console.log(data);
+            console.log(data);
       })
       .catch( e => {
           console.log(e);

@@ -16,6 +16,15 @@ export class Mascota {
   constructor() { }
 }
 
+export class Turno {
+  public id: any;
+  public mascota_id: any;
+  public usuario_id: any;
+  public fecha: any;
+
+  constructor() { }
+}
+
 
 @Component({
   selector: 'app-abm-turnos',
@@ -36,6 +45,8 @@ export class AbmTurnosComponent implements OnInit {
 
     //   Objeto Mascota
     usuario: Mascota;
+    turno: Turno;
+    turnoSolicitado: boolean;
     public miMascota = new Mascota();
 
     constructor(private service: ApiService) {
@@ -46,6 +57,7 @@ export class AbmTurnosComponent implements OnInit {
       this.buscarTodos();
       this.estaCargado = false;
       this.mostrarLista = false;
+      this.turnoSolicitado = false;
   }
 
   //  Traigo todas las personas
@@ -57,12 +69,34 @@ export class AbmTurnosComponent implements OnInit {
 
               this.service.getObjs('/mascota/mias/' + this.tokenPayload.data.email)
               .then( data => {
-                 // console.log(data);
+                  // console.log(data);
                   this.mostrarLista = true;
                   this.arrayMascotas = data;
                 })
               .catch( error => { console.log(error); });
           }
       }
+  }
+
+  sacarTurno(mascota) {
+        this.turno = new Turno();
+        this.miMascota = mascota;
+        // console.log(this.miMascota);
+        this.turno.mascota_id = mascota.id;
+        this.turno.usuario_id = mascota.usuario_id;
+        this.turnoSolicitado = true;
+  }
+
+  cargarTurno() {
+      // Pedimos un turno
+      this.service.postObj( this.turno, '/turnos/' )
+      .then( data => {
+            this.turnoSolicitado = false;
+            // console.log(data);
+      })
+      .catch( e => {
+          console.log(e);
+      } );
+        // console.log(this.turno);
   }
 }

@@ -9,6 +9,7 @@ import * as jwt_decode from 'jwt-decode';
 })
 export class MenuComponent implements OnInit {
 
+
     token: any;
     tokenPayload: any;
     public tipoMenu: any;

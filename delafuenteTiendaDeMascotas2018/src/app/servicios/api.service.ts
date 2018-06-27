@@ -24,6 +24,13 @@ constructor(public http: Http, private authHttp: AuthHttp) { }
       .catch( this.handleError );
     }
 
+    postObj(objeto: Object, ruta: string) {
+        return this.http.post(this.url + ruta, objeto)
+        .toPromise()
+        .then( this.extractData )
+        .catch( this.handleError );
+    }
+
     postRegistrar(user: Object, ruta: string) {
         return this.http.post(this.url + ruta, user)
         .toPromise()
